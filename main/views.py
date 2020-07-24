@@ -59,7 +59,7 @@ def mylist(response):
 
 	
 
-	
+#addcolleges
 def collegedata(response):  
 	if response.user.is_authenticated:
 		error = False 
@@ -80,7 +80,7 @@ def collegedata(response):
 				
 				
 
-				if price!="" and location!="" and acceptance!="" and len(acceptance)<3:
+				if name!="":
 					new=UserColleges(
 						name=name, 
 						price=price, 
@@ -94,18 +94,6 @@ def collegedata(response):
 						)
 					new.save() 
 					response.user.usercolleges.add(new) 
-
-					if permission:
-						addtomain=AllColleges(
-						name=name, 
-						price=price, 
-						location=location,
-						specifiedlocation=specificloc,
-						acceptancerate=acceptance,
-						deadline=deadline
-						
-							) 
-						addtomain.save()
 
 					return redirect("/myco") 
 

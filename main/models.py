@@ -23,9 +23,9 @@ class PreferedLocations(models.Model):
 class UserColleges(models.Model): 
 	user=models.ForeignKey(User, on_delete=models.CASCADE, related_name="usercolleges", null=True)
 	name=models.CharField(max_length=100, default="")
-	price=models.BigIntegerField(default=0)  
-	myrating=models.IntegerField( default=5)
-	location=models.CharField(max_length=60, default="") 
+	price=models.BigIntegerField(default=0, null=True)  
+	myrating=models.IntegerField( default=5, null=True)
+	location=models.CharField(max_length=60, default="", null=True) 
 	specifiedlocation=models.CharField(max_length=60, default="", null=True, blank=True)
 	acceptancerate=models.IntegerField(default=0) 
 	deadline=models.DateField(null=True, blank=True) 
