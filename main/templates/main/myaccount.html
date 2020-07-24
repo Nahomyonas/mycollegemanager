@@ -1,0 +1,42 @@
+{% extends 'main/base.html' %} 
+
+{% block title %} 
+My Account 
+{% endblock %} 
+
+{% block content %} 
+{% block pagetitle%} 
+<h1 class="display-4">My Account</h1>
+<hr>
+{% endblock %}
+
+{% block centercontent%}
+<div class="jumbotron">
+<div class="container" align="left">
+	<h2>Account Details</h2>
+	<hr>
+	<h3 style="text-transform: capitalize;">Username: {{user.get_username}}</h3>  
+	<h3>Email: {{user.email}}</h3> 
+
+</div>
+</div>
+{% if preference == "fullfilled" %}
+<div class="jumbotron">
+<div class="container" align="left">
+	<h2>My Preferences</h2>
+	<hr>
+</div>
+</div>
+{% elif preference == "notfullfilled" %}  
+<div class="jumbotron">
+<div class="container" align="left">
+	<h2>My Preferences</h2>
+	<hr>
+	<p><a href="#" class="btn btn-primary btn-lg">Submit Prefrences &raquo;</a></p>
+</div>
+</div>
+
+{% endif %}
+{% endblock %} 
+
+{%endblock%}

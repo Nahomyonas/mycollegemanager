@@ -1,0 +1,50 @@
+{% extends 'main/base.html' %} 
+
+{% block title %} 
+	My College Manager 
+{% endblock %}
+
+{% block content %} 
+	
+	{% block centercontent %} 
+	<br>
+	<main role="main">
+
+  <div class="jumbotron" style="background-color: #d9534f; ">
+    <div class="container">
+
+      <h1 class="display-3">Discussion Rooms</h1>
+      <p>Create or join rooms and discuss and share your college research with other users
+      </p>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-4">
+        <h2>Search For Rooms</h2>
+        <p>Search and request to join rooms.</p><br>
+        <p><a class="btn btn-danger" href="/rooms/roomsearch/" role="button">Search Rooms &raquo;</a></p>
+      </div>
+      <div class="col-md-4">
+        <h2>Create Rooms</h2>
+        <p> Creatr rooms and invite other users.</p><br>
+        <p><a class="btn btn-danger" href="/rooms/roomgenerate" role="button">Create &raquo;</a></p>
+      </div>
+      <div class="col-md-4">
+        <h2>My Rooms</h2>
+        <p>Access rooms you are in and have created.</p>
+        <p><a class="btn btn-danger" href="/rooms/myrooms" role="button">My Rooms &raquo;</a></p>
+      </div>
+    </div>
+
+    <hr>
+
+  </div> 
+
+</main>
+
+	{% endblock %}
+{% endblock %} 
+

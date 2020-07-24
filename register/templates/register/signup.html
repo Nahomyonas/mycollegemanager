@@ -1,0 +1,38 @@
+{% extends 'main/base.html' %} 
+
+{% block css %} 
+
+{% endblock %}
+
+{% block title %} 
+	SIGNUP 
+{% endblock %} 
+{% load crispy_forms_tags %}
+
+{% block content %} 
+	{% block pagetitle %} 
+		<h1 class="display-4"> Create New Account </h1> 
+	{% endblock %} 
+
+	{% block centercontent %}
+	<div class="col-md-10">
+		<form method="POST" class="form-group" >
+
+				<p style="color: red;">
+					{% if error == "username" %}
+					 *Username already occupied.
+					{% elif error == "email" %}
+					*Email already occupied. 
+					{% elif error == "other" %}
+					*Invalid Form. Try again. 
+					{% endif %}
+				</p> 
+
+			{% csrf_token %}
+			{{form|crispy}} 
+			<button type="submit" class="btn btn-success" name="create" value="create">Register</button>
+		</form> 
+	</div>
+	{% endblock %}
+
+{% endblock %}  

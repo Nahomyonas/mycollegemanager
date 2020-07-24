@@ -1,0 +1,50 @@
+{% extends 'main/base.html' %} 
+
+{% block title %} 
+My Schools
+{% endblock %} 
+
+{% block content %} 
+	
+	{% block centercontent %} 
+	<br>
+	<div class="card card-body">
+			<form method="post" >
+				{% csrf_token %}
+			<h4>Sort By:</h4> 
+			<select class="custom-select" name="sortby" value="sortby">
+				<option>My Top Choices</option> 
+				<option>Most Competitive</option> 
+			</select>
+			<br>
+			<br>
+			<button type="submit" name="search" class="btn btn-success btn-lg" value="search">
+				Search 
+			</button>
+		</form>
+	</div>
+
+	<div class="container" align="left">
+		<br>
+		<h2 style="text-transform: capitalize;">{{title}}</h3> 
+		<hr>
+		{% for college in sortby %} 
+		<div class="jumbotron" style="height: 180px; padding-top: 20px;"> 
+			<h3 style="text-transform: capitalize;">{{college.name}}</h3>
+			<h5>{{fieldtitle}}:
+			{% if fieldtitle == "Acceptance Rate" %}
+			{{college.acceptancerate}}
+			{% elif fieldtitle == "My Rating" %} 
+			{{college.myrating}}
+			{% endif %} 
+			</h5>
+			<hr>
+			 <p><a class="btn btn-danger btn-lg" href="/mycoll/{{college.id}}/" role="button">Details &raquo;</a></p>
+		</div>
+		{% endfor %}
+	</div> 
+
+		
+
+	{% endblock %} 
+{% endblock %}

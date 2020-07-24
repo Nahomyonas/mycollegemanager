@@ -1,0 +1,28 @@
+{% extends 'main/base.html' %} 
+
+{% block title %} 
+My Rooms 
+{% endblock %} 
+
+{% block contents %} 
+{% block pagetitle %} 
+	<h2 align="left">My Rooms</h2> 
+	<hr> 
+{% endblock %} 
+
+{% block centercontent %} 
+	<p><a href="/rooms/roomsearch" class="btn btn-primary btn-block" style="width:400px;"> Search Rooms</a></p> 
+
+	{% for room in myrooms %}
+		<div class="jumbotron"> 
+		<h3 align="left">{{room.name}}<h3> 
+		<br>
+		<p align="left"><a href="#" class="btn btn-primary btn-lg">Enter Room &raquo;</a></p>  
+		</div>
+	{% endfor %}
+
+{% endblock %}
+{% endblock %} 
+
+
+

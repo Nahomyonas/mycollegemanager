@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %} 
+
+{% block title %} 
+	My College Manager 
+{% endblock %}
+
+{% block content %} 
+  
+  {% block pagetitle %}
+  <br>
+  <div class="row" style="margin-bottom: 5px; ">
+    <div class="col" align="left">
+    <h3 align="left" style="text-transform: uppercase;">{{room.name}}</h3> 
+    </div>
+    <div class="col" align="right"> 
+    <p align="right" style="margin-bottom: 0px;"><a href="#" class="btn btn-danger btn-lg">Leave Room</a></p>
+    </div>
+  </div>
+    <hr style="margin-top:0px;"> 
+  {% endblock %}
+	
+	{% block centercontent %} 
+
+
+	{% endblock %}
+{% endblock %} 
+

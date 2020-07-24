@@ -1,0 +1,59 @@
+{% extends 'main/base.html' %} 
+
+{% block title %} 
+	My College Manager 
+{% endblock %}
+
+{% block content %} 
+	{% block pagetitle %} 
+  {% if preference == "notfullfilled" %}
+   <div class="card card-body" style="height: 40px; margin-top: 10px; padding-top: 3px;">
+     <h4 >Tell Us About Your Preferences <a href="/myaccount">here!</a></p>
+   </div>
+   {% endif %}
+  {% endblock %}
+
+	{% block centercontent %} 
+	<br>
+	<main role="main">
+
+  <div class="jumbotron">
+    <div class="container">
+
+      <h1 class="display-3">Hello,</h1><h1 class="display-3" style="text-transform: capitalize;"> {{user.get_username}}!</h1>
+      <p>My College Manager is here to help you organize your college research, we will also do our best to 
+      	make your college application process as simple as possible.My college manager will take your preferences and give you your topics from the colleges you researched from.
+      </p>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-4">
+        <h2>My College List</h2>
+        <p>Go check out your list of colleges and their details. You can also add new colleges to your list here
+         </p>
+        <p><a class="btn btn-danger" href="/myco" role="button">My Colleges &raquo;</a></p>
+      </div>
+      <div class="col-md-4">
+        <h2>My Account</h2>
+        <p> Here, you can edit your preferences so My College Manager can select your top picks accurately. </p>
+        <p><a class="btn btn-danger" href="/myaccount" role="button">My Account &raquo;</a></p>
+      </div>
+      <div class="col-md-4">
+        <h2>My Applications</h2>
+        <p>Check your College application status here.You can also add and control yout tasks.</p>
+        <p><a class="btn btn-danger" href="#" role="button">View details &raquo;</a></p>
+      </div>
+    </div>
+
+    <hr>
+
+  </div> 
+
+</main>
+
+	{% endblock %}
+{% endblock %} 
+

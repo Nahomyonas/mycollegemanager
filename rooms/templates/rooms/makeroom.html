@@ -1,0 +1,55 @@
+{% extends 'main/base.html' %} 
+
+
+{% block title %} 
+College Name
+{% endblock %} 
+
+{% block content %} 
+	{% block pagetitle %} 
+		<h1 class="display-4">New College Form</h1> 
+		
+		
+	{% endblock %} 
+
+	{% block centercontent %}
+	{% if error %} 
+		<p style="color: red;"> *Invalid Form. </p>
+	{% endif %}
+ 
+	<div class="col-md-8">
+		<form method="POST" action="#"> 
+			{% csrf_token %}
+			<div class=form-group>
+				<h3 for="new">Name:</h3> 
+				<input type="text" name="name" id="new" class="form-control"> 
+				
+			</div>
+
+			
+			<div class=form-group>
+				<h3 for="new">KEY:</h3> 
+				<input type="text" name="key" id="new" class="form-control">
+				<small>*max of 7 chars.</small> 
+				
+			</div>
+
+			<div class=form-group>
+				<h3 for="new">Name:</h3> 
+				<select class="custom-select" name="type" value="type">
+					<option>Private</option> 
+					<option>Public</option>
+				</select>	
+			</div>
+			  
+			
+			<br>
+			<button name="save" value="save" class="btn btn-primary btn-lg">SAVE</button>
+
+
+		</form> 
+	</div>
+			
+	{% endblock %} 
+
+{% endblock %}

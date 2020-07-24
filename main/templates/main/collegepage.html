@@ -1,0 +1,40 @@
+{% extends 'main/base.html' %} 
+
+{% block title %} 
+{{college.name}} 
+{% endblock %} 
+
+{% block content %} 
+	{% block pagetitle %} 
+		<h1 class="display-4">About College</h1> 
+		<h4> (from other users)</h4>
+	{% endblock %} 
+	{% if user.is_authenticated %}
+	{% block centercontent %} 
+	<br>
+		<h2 class="display-6">Name:{{college.name}}</h2> 
+		<h2 class="display-5">Avg. Price For You:={{college.price}}$</h2> 
+		<h2 class="display-5">
+		{% if college.location == "Not in the US" %}
+		Location:{{college.specifiedlocation}}
+		{% else %}
+		Location:{{college.location}}
+		{% endif %}
+		</h2>
+		<h2 class="display-5">Acceptance Rate:{{college.acceptancerate}}%</h2> 
+		<h2 class="display-5">Application Deadline:{{college.deadline}}</h2> <br><br>
+
+	<div class="row" align="center">
+		<div class=col-sm-4>
+		</div>
+		<form method="POST" action="#"> 
+		{% csrf_token %}
+		<button style="margin-left:45px " type="submit" name="addtolist" value="addtolist" class="btn btn-primary btn-lg" align="center">Add College To My List</button>
+		</form>
+		
+		
+	</div>
+	{% endblock %} 
+	{% endif %}
+
+{% endblock %}

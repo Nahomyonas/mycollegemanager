@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %} 
+
+{% block css %} 
+
+{% endblock %}
+
+{% block title %} 
+	Success
+{% endblock %} 
+{% load crispy_forms_tags %}
+
+{% block content %} 
+	{% block pagetitle %} 
+	{% if user.is_authenticated %}
+		<h1 class="display-4">You Have Successfully Loged In! </h1> 
+	{%else%} 
+		<h1 class="display-4">Login</h1> 
+	{% endif %}
+
+	{% endblock %}
+
+{% endblock %}  

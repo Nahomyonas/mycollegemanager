@@ -1,0 +1,88 @@
+{% extends 'main/base.html' %} 
+
+
+{% block title %} 
+College Name
+{% endblock %} 
+
+{% block content %} 
+	{% block pagetitle %} 
+		<h1 class="display-4">Preference form</h1> 
+		
+		
+	{% endblock %} 
+
+	{% block centercontent %}
+	{% if error %} 
+		<p style="color: red;"> *Invalid Form. </p>
+	{% endif %}
+ 
+	<div class="col-md-8">
+		<form method="POST" action="#"> 
+			{% csrf_token %}
+			<div class=form-group>
+				<h3 for="new">Name:</h3> 
+				<input type="text" name="new" id="new" class="form-control"> 
+				
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="form-group">  
+						<h5 for="myrating">My Rating:</h5>
+						<input type="range" name="rating" value="5" min="0" max="10" id="inputid" class="slider" oninput="outid.value=inputid.value"> 
+						<output name="val" id="outid" >5</output> 
+						
+					</div>
+				</div> 
+
+				<div class="col"> 
+					<div class="form-group"> 
+						<h5 for="accrate">Acceptance Rate</h5> 
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text">%</span>
+							</div>
+							<input type="number" id="accrate" name="acceptance" placeholder="0-99%" class="form-control">
+						</div>
+					</div> 
+				</div>
+			</div>
+
+			<div class="form-group">  
+					<h3 for="price">Avg. Price For You:</h3>
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text">$</span>
+						</div> 
+						<input type="number" id="price" name="price" class="form-control">  
+					</div>
+			</div>
+			
+
+			<div class="form-group">  
+					<h3 for="location">Application Deadlines</h3>
+					<input type="date" id="deadline" name="deadline"  class="form-control">
+			</div>
+			<br>
+
+			<!--Permission for other users to see data.-->
+			
+				<div class="input-group-prepend" > 
+					<div class="col-md-3"></div>
+			     	 <input type="checkbox" name="permission" value="allowed" checked>
+			   		 <p style="font-size: 17px"> *Let others users access and use this data.</p>
+				</div>
+			  
+			
+			<!--permission-->
+			<br>
+			<button name="save" value="save" class="btn btn-primary btn-lg">SAVE</button>
+			<p> *Please make sure that all inputs are valid.</p>
+
+
+		</form> 
+	</div>
+			
+	{% endblock %} 
+
+{% endblock %}
