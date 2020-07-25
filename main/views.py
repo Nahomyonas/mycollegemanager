@@ -72,7 +72,9 @@ def collegedata(response):
 				price=response.POST.get("price") 
 				location=response.POST.get("loc")  
 				specificloc=response.POST.get("specificloc")
-				deadline=response.POST.get("deadline")
+				deadline=response.POST.get("deadline") 
+				if deadline == "": 
+					deadline="1985-10-10"
 				if response.POST.get("permission") == "allowed":
 					permission=True 
 				else: 
@@ -115,13 +117,17 @@ def coll(response,id):
 
 def mycoll(response, id):
 	if response.user.is_authenticated:
-		college=UserColleges.objects.get(id=id)    
+		falsedeadline=False
+		college=UserColleges.objects.get(id=id)  
+		if college.deadline == "1985-10-10":
+			falsedeadline=True
+		print(college.deadline)   
 		if response.method == "POST": 
 			print(response.POST)
 			if response.POST.get("delete"): 
 				response.user.usercolleges.remove(college)
 				return redirect("/myco/") 
-		return render(response, "main/mycollegepage.html", {"college":college})
+		return render(response, "main/mycollegepage.html", {"college":college, "fdeadline": falsedeadline})
 	else:
 		return render(response, "main/notauthenticated.html", {})  
 

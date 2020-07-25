@@ -23,8 +23,11 @@
 		{% endif %}
 		</h2>
 		<h2 class="display-5">Acceptance Rate:{{college.acceptancerate}}%</h2> 
+		{% if fdeadline%} 
+		<h2 class="display-5">Application Deadline:?</h2> <br><br>
+		{% else %}
 		<h2 class="display-5">Application Deadline:{{college.deadline}}</h2> <br><br>
-
+		{% endif %}
 	<div class="row" align="center">
 		<div class=col-sm-4>
 		</div>

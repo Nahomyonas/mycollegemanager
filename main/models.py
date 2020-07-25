@@ -28,7 +28,7 @@ class UserColleges(models.Model):
 	location=models.CharField(max_length=60, default="", null=True) 
 	specifiedlocation=models.CharField(max_length=60, default="", null=True, blank=True)
 	acceptancerate=models.IntegerField(default=0) 
-	deadline=models.DateField(null=True, blank=True) 
+	deadline=models.DateField(null=True, default="0000-00-00") 
 	permission=models.BooleanField(default=True)
 	def __str__(self): 
 		return self.user
