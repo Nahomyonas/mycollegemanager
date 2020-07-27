@@ -22,5 +22,6 @@ urlpatterns = [
     path('rooms/', include('rooms.urls')),
     path('admin/', admin.site.urls), 
     path('signup/', reg.register, name="register"), 
-    path('', include("django.contrib.auth.urls")),
+    path('', include("django.contrib.auth.urls")), 
+    path('/verific', include("webmaster_verification.urls"))
 ]

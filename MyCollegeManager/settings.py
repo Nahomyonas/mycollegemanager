@@ -26,7 +26,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'yfgh!fruoe3gco__tjsso&b4usgkfqkt7w)=e9%9vp!4vgrccj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [] 
 
@@ -36,6 +36,7 @@ ADMINS=[('Nahom', 'hilstode12e@gmail.com')]
 # Application definition
 
 INSTALLED_APPS = [  
+    'webmaster_verification',
     'django_filters',
     "crispy_forms",
     'register.apps.RegisterConfig',
@@ -60,6 +61,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
+
+WEBMASTER_VERIFICATION = {
+
+    'google': '<google verification google9fc2006175d5f497>',
+    
+}
 
 ROOT_URLCONF = 'MyCollegeManager.urls'
 
