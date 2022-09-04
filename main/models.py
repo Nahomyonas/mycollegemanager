@@ -31,15 +31,7 @@ class UserColleges(models.Model):
 	deadline=models.DateField(null=True, default="0000-00-00") 
 	permission=models.BooleanField(default=True)
 	def __str__(self): 
-		return self.user
-		return self.name 
-		return self.price  
-		return self.myrating 
-		return self.location 
-		return self.specifiedlocation
-		return self.acceptancerate 
-		return self.deadline
-		return self.permission 
+		return self.user,self.name,self.price,self.myrating,self.location,self.specifiedlocation,self.acceptancerate,self.deadline,self.permission 
 
 
 
@@ -51,12 +43,7 @@ class AllColleges(models.Model):
 	acceptancerate=models.IntegerField(default=0) 
 	deadline=models.DateField(null=True, blank=True) 
 	def __str__(self): 
-		return self.name 
-		return self.price  
-		return self.location 
-		return self.specifiedlocation
-		return self.acceptancerate 
-		return self.deadline 
+		return self.name, self.price, self.location, self.specifiedlocation, self.acceptancerate,self.deadline 
 
 
 
