@@ -146,14 +146,11 @@ def editdata(response, id):
 				deadline=response.POST.get("deadline")
 				if price!="" and location!="" and acceptance!="" and len(acceptance)<3:
 					college.price=price 
-					college.save() 
 					college.myrating=rating 
-					college.save() 
 					college.location=location 
-					college.save() 
 					college.acceptancerate=acceptance 
-					college.save()
 					college.deadline=deadline 
+					college.save()
 					return redirect("/mycoll/%s/" %college.id) 
 
 		return render(response, "main/editdata.html", {"college":college}) 
